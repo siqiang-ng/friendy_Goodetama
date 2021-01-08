@@ -23,7 +23,7 @@ class BackgroundWLogo extends StatelessWidget {
                 ),
                 Image.asset(
                   'images/friendy_logo.png',
-                  width: size.width * 0.8,
+                  width: size.width * 0.6,
                 ),
                 child
               ],
