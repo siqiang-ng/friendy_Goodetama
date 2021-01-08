@@ -15,6 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+        resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text('Login'),
       ),
@@ -22,6 +23,9 @@ class _LoginPageState extends State<LoginPage> {
         key: _formKey,
         child: Column(
           children: <Widget>[
+            SizedBox(
+              height: 270
+            ),
             TextFormField(
               validator: (input) {
                 if (input.isEmpty) {
@@ -32,8 +36,16 @@ class _LoginPageState extends State<LoginPage> {
                 _email = input;
               },
               decoration: InputDecoration(
-                labelText: 'Email'
+                labelText: 'Email',
+                border: new OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(30.0),
+                  ),
+                ),
               ),
+            ),
+            SizedBox (
+              height: 30
             ),
             TextFormField(
               validator: (input) {
@@ -45,14 +57,47 @@ class _LoginPageState extends State<LoginPage> {
                 _password = input;
               },
               decoration: InputDecoration(
-                  labelText: 'Password'
+                  labelText: 'Password',
+                border: new OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(30.0),
+                  ),
+                ),
               ),
               obscureText: true,
             ),
-            RaisedButton(
-              onPressed: login,
-              child: Text("Sign in")
-            )
+            Text('Forgot Password',
+            textAlign: TextAlign.right,
+            style: TextStyle(fontStyle: FontStyle.italic)),
+            SizedBox (
+              height: 90,
+            ),
+        RaisedButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) => BottomNavBar()),
+            );
+          },
+          textColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50.0)
+          ),
+          padding: const EdgeInsets.all(0.0),
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: <Color>[
+                  Color(0xFF0D47A1),
+                  Color(0xFF1976D2),
+                  Color(0xFF42A5F5),
+                ],
+              ),
+            ),
+            padding: const EdgeInsets.all(17.0),
+            child:
+            const Text('LOGIN', style: TextStyle(fontSize: 18)),
+          ),
+          ),
           ],
         ),
       )
@@ -76,3 +121,4 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 }
+

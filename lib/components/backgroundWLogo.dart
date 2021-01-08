@@ -14,22 +14,22 @@ class BackgroundWLogo extends StatelessWidget {
 
     // TODO: implement build
     return Background(
-          body: Container(
-            child: Center(
-               child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 100,
-                    ),
-                    Image.asset(
-                      'images/friendy_logo.png',
-                      width: size.width * 0.8,
-                    ),
-                    child
-                  ],
-              ),
+        body: Container(
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 100,
+                ),
+                Image.asset(
+                  'images/friendy_logo.png',
+                  width: size.width * 0.8,
+                ),
+                child
+              ],
             ),
-          )
+          ),
+        )
     );
   }
 }
