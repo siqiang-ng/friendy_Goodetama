@@ -9,6 +9,7 @@ void main() {
   runApp(FriendyApp());
 }
 
+
 class FriendyApp extends StatelessWidget {
   void initialize() async {
     await Firebase.initializeApp();
