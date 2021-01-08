@@ -1,0 +1,6 @@
+package com.example.friendy
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
