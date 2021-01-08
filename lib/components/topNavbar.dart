@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/style/palette.dart';
-import 'package:friendy/loginPage/loginPage.dart';
 
 class TopNavBar extends StatelessWidget with PreferredSizeWidget {
   @override
@@ -11,9 +10,7 @@ class TopNavBar extends StatelessWidget with PreferredSizeWidget {
       leading: IconButton(
         icon: const Icon(Icons.notifications),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(
-            builder: (context) => LoginPage())
-          );
+          Navigator.pop(context);
         },
       ),
       title: Align(
