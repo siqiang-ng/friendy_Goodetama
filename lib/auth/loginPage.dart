@@ -4,6 +4,7 @@ import 'package:friendy/auth/components/blueButton.dart';
 import 'package:friendy/components/backgroundWLogo.dart';
 import '../components/bottomNavbar.dart';
 import '../components/topNavbar.dart';
+import 'package:friendy/style/palette.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -67,9 +68,19 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 obscureText: true,
               ),
-              Text('Forgot Password',
-                textAlign: TextAlign.right,
-                style: TextStyle(fontStyle: FontStyle.italic)
+              Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text('forgot password?',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Palette.kDarkBlue
+                    )
+                  ),
+                ),
               ),
               SizedBox (
                 height: 70,
