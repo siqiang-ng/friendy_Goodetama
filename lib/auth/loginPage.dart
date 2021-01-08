@@ -73,11 +73,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 90,
             ),
         RaisedButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) => BottomNavBar()),
-            );
-          },
+          onPressed: login,
           textColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50.0)
