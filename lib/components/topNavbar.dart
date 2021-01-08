@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/style/palette.dart';
-import 'package:friendy/loginPage.dart';
+import 'file:///C:/Users/siqiang/OneDrive/Desktop/friendy_Goodetama/lib/loginPage/loginPage.dart';
 
 class TopNavBar extends StatelessWidget with PreferredSizeWidget {
   @override
