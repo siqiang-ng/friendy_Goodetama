@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/components/backgroundWLogo.dart';
-import 'package:friendy/loginPage/loginPage.dart';
+import 'file:///C:/Users/siqiang/OneDrive/Desktop/friendy_Goodetama/lib/auth/loginPage.dart';
 import 'signup.dart';
 
 class WelcomePage extends StatefulWidget {

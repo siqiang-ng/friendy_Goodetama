@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:friendy/components/bottomNavbar.dart';
-import 'loginPage/loginPage.dart';
+import 'loginPage.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -52,7 +51,7 @@ class _SignupPageState extends State<SignupPage> {
               ),
               RaisedButton(
                   onPressed: signup,
-                  child: Text("Sign in")
+                  child: Text("Sign Up")
               )
             ],
           ),

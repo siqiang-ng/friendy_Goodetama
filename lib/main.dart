@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:friendy/loginPage/loginPage.dart';
+import 'file:///C:/Users/siqiang/OneDrive/Desktop/friendy_Goodetama/lib/auth/loginPage.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'welcome.dart';
+import 'auth/welcome.dart';
 
 
 Future<void> main() async {
