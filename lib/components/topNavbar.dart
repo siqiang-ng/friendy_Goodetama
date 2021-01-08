@@ -24,19 +24,23 @@ class TopNavBar extends StatelessWidget with PreferredSizeWidget {
         ),
       ),
       actions: <Widget>[
-        Visibility(
-          visible: !requiresBack,
-          child: IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SettingsPage()),
-              );
-              // do something
-            },
-          ),
-        )
+       Opacity(
+         opacity: requiresBack? 0 : 1,
+         child: IconButton(
+              splashColor: requiresBack ? Colors.transparent: Colors.grey[350],
+              highlightColor: requiresBack ? Colors.transparent : Colors.grey,
+              icon: Icon(Icons.settings),
+              onPressed: requiresBack
+                  ? (){}
+                  : () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SettingsPage()),
+                    );
+                  },
+            ),
+       ),
+
       ],
       backgroundColor: Palette.kLightBlue,
     );

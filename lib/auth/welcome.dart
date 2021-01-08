@@ -21,7 +21,7 @@ class _WelcomePageState extends State<WelcomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 50
+                height: 80
               ),
               BlueButton(
                 onPressed: () {
@@ -30,7 +30,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 label: 'Sign In'
               ),
               SizedBox(
-                height: 20
+                height: 25
               ),
               BlueButton(
                 onPressed: () {

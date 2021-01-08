@@ -68,8 +68,9 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: true,
               ),
               Text('Forgot Password',
-              textAlign: TextAlign.right,
-              style: TextStyle(fontStyle: FontStyle.italic)),
+                textAlign: TextAlign.right,
+                style: TextStyle(fontStyle: FontStyle.italic)
+              ),
               SizedBox (
                 height: 70,
               ),
