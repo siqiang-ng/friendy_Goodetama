@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/style/palette.dart';
+import 'package:friendy/loginPage.dart';
 
 class TopNavBar extends StatelessWidget with PreferredSizeWidget {
   @override
@@ -9,7 +10,11 @@ class TopNavBar extends StatelessWidget with PreferredSizeWidget {
       // The title text which will be shown on the action bar
       leading: IconButton(
         icon: const Icon(Icons.notifications),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) => LoginPage())
+          );
+        },
       ),
       title: Align(
         alignment: Alignment.center,
