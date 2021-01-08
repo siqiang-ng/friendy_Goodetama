@@ -15,8 +15,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    HomeBody(),
     ProfileBody(),
+    HomeBody(),
     RoomsBody(),
   ];
 
