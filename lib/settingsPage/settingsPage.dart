@@ -8,7 +8,9 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Palette.kLightBlue,
-      appBar: TopNavBar(),
+      appBar: TopNavBar(
+        requiresBack: true,
+      ),
       body: SettingsBody(),
     );
   }

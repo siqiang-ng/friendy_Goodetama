@@ -3,10 +3,10 @@ import 'package:friendy/style/palette.dart';
 import 'package:friendy/settingsPage/settingsPage.dart';
 
 class TopNavBar extends StatelessWidget with PreferredSizeWidget {
-  bool requiresBack = false;
+  final bool requiresBack;
 
   TopNavBar({
-    this.requiresBack
+    this.requiresBack = false,
   });
 
   @override
@@ -14,12 +14,7 @@ class TopNavBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       iconTheme: IconThemeData(color: Palette.kDarkBlue),
       // The title text which will be shown on the action bar
-      leading: IconButton(
-        icon: const Icon(Icons.notifications),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      ),
+      leading: leadingIcon(context),
       title: Align(
         alignment: Alignment.center,
         child: Image.asset(
@@ -29,15 +24,18 @@ class TopNavBar extends StatelessWidget with PreferredSizeWidget {
         ),
       ),
       actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.settings),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SettingsPage()),
-            );
-            // do something
-          },
+        Visibility(
+          visible: !requiresBack,
+          child: IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsPage()),
+              );
+              // do something
+            },
+          ),
         )
       ],
       backgroundColor: Palette.kLightBlue,
@@ -48,5 +46,21 @@ class TopNavBar extends StatelessWidget with PreferredSizeWidget {
   // TODO: implement preferredSize
   Size get preferredSize {
     return Size.fromHeight(50.0);
+  }
+
+  IconButton leadingIcon(BuildContext context) {
+    if (!requiresBack) {
+      return IconButton(
+        icon: const Icon(Icons.notifications),
+        onPressed: () {},
+      );
+    } else {
+      return IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      );
+    }
   }
 }
