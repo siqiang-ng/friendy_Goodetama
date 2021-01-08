@@ -8,6 +8,12 @@ class ProfileBody extends StatefulWidget {
 }
 
 class _ProfileBodyState extends State<ProfileBody> {
+  final TextStyle textStyle = TextStyle(
+    color: Palette.kDarkBlue,
+    fontWeight: FontWeight.bold,
+    fontSize: 18
+  );
+
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -16,15 +22,18 @@ class _ProfileBodyState extends State<ProfileBody> {
             children: <Widget>[
               Container(
                   alignment: Alignment(0.0,2.5),
-                  child: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        'https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144855718.jpg'
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(
+                          'https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144855718.jpg'
+                      ),
+                      radius: 60.0,
                     ),
-                    radius: 60.0,
                   )
               ),
               SizedBox(
-                height: 10,
+                height: 5,
               ),
               Text(
                 "Friendy_734",
@@ -42,14 +51,16 @@ class _ProfileBodyState extends State<ProfileBody> {
                 onPressed: () {},
                 child: Text(
                   'Edit Profile',
-                  style: TextStyle(
-                      fontSize: 16.0,
-                      color: Palette.kDarkBlue
-                  ),
+                  style: textStyle,
                 ),
                 color: Palette.kLightBlue,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-//                splashColor: Palette.kDarkBlue,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    side: BorderSide(
+                      width: 2,
+                      color: Palette.kDarkBlue
+                    )
+                ),
               ),
               SizedBox(
                 height: 10,
@@ -58,10 +69,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                 child: ListTile(
                   leading: Icon(Icons.people_outline, color: Palette.kDarkBlue,),
                   title: Text("Invite a friend",
-                    style: TextStyle(
-                      color: Palette.kDarkBlue,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: textStyle,
                 ),
                   trailing: Icon(Icons.keyboard_arrow_right, color: Palette.kDarkBlue,),
                   onTap: () {},
@@ -73,10 +81,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                 child: ListTile(
                   leading: Icon(Icons.help_outline, color: Palette.kDarkBlue,),
                   title: Text("Help & Support",
-                    style: TextStyle(
-                      color: Palette.kDarkBlue,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: textStyle,
                   ),
                   trailing: Icon(Icons.keyboard_arrow_right, color: Palette.kDarkBlue,),
                   onTap: () {},
@@ -88,10 +93,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                 child: ListTile(
                   leading: Icon(Icons.login_outlined, color: Palette.kDarkBlue,),
                   title: Text("Logout",
-                    style: TextStyle(
-                      color: Palette.kDarkBlue,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: textStyle,
                   ),
                   trailing: Icon(Icons.keyboard_arrow_right, color: Palette.kDarkBlue,),
                   onTap: () {},
@@ -103,10 +105,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                 child: ListTile(
                   leading: Icon(Icons.privacy_tip_outlined, color: Palette.kDarkBlue,),
                   title: Text("Privacy",
-                    style: TextStyle(
-                      color: Palette.kDarkBlue,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: textStyle,
                   ),
                   trailing: Icon(Icons.keyboard_arrow_right, color: Palette.kDarkBlue,),
                   onTap: () {},
