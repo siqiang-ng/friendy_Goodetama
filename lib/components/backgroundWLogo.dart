@@ -25,7 +25,7 @@ class BackgroundWLogo extends StatelessWidget {
                   errorMessage: errorMessage
                 ),
                 SizedBox(
-                  height: 100,
+                  height: 80,
                 ),
                 Image.asset(
                   'images/friendy_logo.png',

@@ -18,7 +18,7 @@ class AlertMessage extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(right: 8.0),
                 child: Icon(Icons.error_outline),
               ),
               Expanded(
@@ -26,7 +26,7 @@ class AlertMessage extends StatelessWidget {
                   errorMessage,
                   maxLines: 3,
                 ),
-              )
+              ),
             ],
           )
       );
