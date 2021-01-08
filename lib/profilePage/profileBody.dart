@@ -67,7 +67,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                   onTap: () {},
                 ),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
-                margin: EdgeInsets.all(10.0),
+                margin: EdgeInsets.all(5.0),
               ),
               Card(
                 child: ListTile(
@@ -82,7 +82,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                   onTap: () {},
                 ),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
-                margin: EdgeInsets.all(10.0),
+                margin: EdgeInsets.all(5.0),
               ),
               Card(
                 child: ListTile(
@@ -97,7 +97,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                   onTap: () {},
                 ),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
-                margin: EdgeInsets.all(10.0),
+                margin: EdgeInsets.all(5.0),
               ),
               Card(
                 child: ListTile(
@@ -112,7 +112,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                   onTap: () {},
                 ),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
-                margin: EdgeInsets.all(10.0),
+                margin: EdgeInsets.all(5.0),
               ),
             ],
           ),
