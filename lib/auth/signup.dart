@@ -12,7 +12,7 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-  String _email, _password;
+  String _email, _password, _error;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -24,6 +24,7 @@ class _SignupPageState extends State<SignupPage> {
           requiresBack: true,
         ),
         body: BackgroundWLogo(
+          errorMessage: _error,
           child: Form(
             key: _formKey,
             child: Column(
@@ -72,11 +73,7 @@ class _SignupPageState extends State<SignupPage> {
                   height: 90,
                 ),
                 BlueButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => BottomNavBar()),
-                    );
-                  },
+                  onPressed: signup,
                   label: "Sign Up",
                 )
               ],
@@ -99,6 +96,9 @@ class _SignupPageState extends State<SignupPage> {
           builder: (context) => LoginPage()
         ));
       } catch (e) {
+        setState(() {
+          _error = e.message;
+        });
         print(e.message);
       }
     }

@@ -1,10 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:friendy/auth/components/alertMessage.dart';
 import 'package:friendy/auth/components/blueButton.dart';
 import 'package:friendy/components/backgroundWLogo.dart';
 import '../components/bottomNavbar.dart';
 import '../components/topNavbar.dart';
 import 'package:friendy/style/palette.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -12,7 +15,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String _email, _password;
+  String _email, _password, _error;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -24,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
           requiresBack: true,
         ),
       body: BackgroundWLogo(
+        errorMessage: _error,
         child: Form(
           key: _formKey,
           child: Column(
@@ -31,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
               TextFormField(
                 validator: (input) {
                   if (input.isEmpty) {
-                    return 'Please type an email';
+                    return 'Email cannot be empty.';
                   }
                 },
                 onSaved: (input) {
@@ -51,6 +55,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextFormField(
                 validator: (input) {
+                  if (input.isEmpty) {
+                    return 'Password cannot be empty.';
+                  }
                   if (input.length < 6) {
                     return 'Your password needs to be at least 6 characters';
                   }
@@ -86,11 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 70,
               ),
               BlueButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => BottomNavBar()),
-                  );
-                },
+                onPressed: login,
                 label: "Login",
               )
             ],
@@ -112,6 +115,9 @@ class _LoginPageState extends State<LoginPage> {
           builder: (context) => BottomNavBar())
         );
       } catch (e) {
+        setState(() {
+          _error = e.message;
+        });
         print(e.message);
       }
     }
