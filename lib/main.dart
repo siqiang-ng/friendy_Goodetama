@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/siqiang/OneDrive/Desktop/friendy_Goodetama/lib/loginPage/loginPage.dart';
+import 'package:friendy/loginPage/loginPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 
