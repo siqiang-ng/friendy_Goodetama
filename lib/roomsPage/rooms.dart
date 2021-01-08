@@ -11,7 +11,7 @@ class RoomsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Palette.kLightBlue,
       appBar: TopNavBar(),
-      body: roomsBody(),
+      body: RoomsBody(),
       bottomNavigationBar: BottomNavBar(),
     );
   }

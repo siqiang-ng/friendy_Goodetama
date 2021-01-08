@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:friendy/components/topNavbar.dart';
+import 'package:friendy/profilePage/profileBody.dart';
 import 'package:friendy/style/palette.dart';
+import 'package:friendy/homePage/homeBody.dart';
+import 'package:friendy/roomsPage/roomsBody.dart';
+
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -7,58 +12,48 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int _selectedIndex = 1;
-  var _route = '/home';
+  int _selectedIndex = 0;
+
+  static List<Widget> _widgetOptions = <Widget>[
+    HomeBody(),
+    ProfileBody(),
+    RoomsBody(),
+  ];
 
   void _onItemTapped(int index) {
-    switch (index) {
-      case 0:
-        Navigator.pushNamed(context, '/profile');
-        break;
-      case 1:
-        Navigator.pushNamed(context, '/home');
-        break;
-      case 2:
-        Navigator.pushNamed(context, '/rooms');
-        break;
-    }
-
     setState(() {
       _selectedIndex = index;
     });
-
-//    if (_selectedIndex == 0) {
-//      _route = '/profile';
-//    }
-//    else if (_selectedIndex == 1) {
-//      _route = '/home';
-//    }
-//    else if (_selectedIndex == 2) {
-//      _route = '/rooms';
-//    }
-//    Navigator.pushNamed(context, _route);
   }
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      backgroundColor: Palette.kLightBlue,
-      currentIndex: _selectedIndex, // this will be set when a new tab is tapped
-      onTap: _onItemTapped,
-      items: [
-        BottomNavigationBarItem(
-          icon: new Icon(Icons.person),
-          title: new Text('Profile'),
+    return Scaffold(
+        appBar: TopNavBar(),
+        body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
         ),
-        BottomNavigationBarItem(
-          icon: new Icon(Icons.home),
-          title: new Text('Home'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.chat),
-          title: new Text('Rooms'),
-        ),
-      ],
+        bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Rooms',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        // selectedItemColor: Palette.kDarkBlue,
+        backgroundColor: Palette.kLightBlue,
+        onTap: _onItemTapped,
+      )
     );
   }
 }
+

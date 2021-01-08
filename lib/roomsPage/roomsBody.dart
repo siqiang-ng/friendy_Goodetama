@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/components/background.dart';
 
-class roomsBody extends StatefulWidget {
-  @override
-  _roomsBodyState createState() => _roomsBodyState();
-}
-
-class _roomsBodyState extends State<roomsBody> {
+class RoomsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Background(

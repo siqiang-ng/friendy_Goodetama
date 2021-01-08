@@ -12,7 +12,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Palette.kLightBlue,
       appBar: TopNavBar(),
-      body: profileBody(),
+      body: ProfileBody(),
       bottomNavigationBar: BottomNavBar(),
     );
   }
