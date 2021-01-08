@@ -30,7 +30,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 label: 'Sign In'
               ),
               SizedBox(
-                height: 30
+                height: 25
               ),
               BlueButton(
                 onPressed: () {
