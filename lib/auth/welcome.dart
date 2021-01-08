@@ -27,13 +27,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 onPressed: () {
                   navigateToLogin();
                 },
-                label: Text(
-                  'Sign In',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white
-                  )
-                )
+                label: 'Sign In'
               ),
               SizedBox(
                 height: 20
@@ -42,13 +36,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 onPressed: () {
                   navigateToSignup();
                 },
-                label: Text(
-                  'Sign Up',
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white
-                  )
-                )
+                label: 'Sign Up'
               ),
             ],
           )

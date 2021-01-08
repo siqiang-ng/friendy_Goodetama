@@ -3,7 +3,7 @@ import 'package:friendy/style/palette.dart';
 
 class BlueButton extends StatelessWidget {
   final Function onPressed;
-  final Text label;
+  final String label;
 
   BlueButton({
     @required this.onPressed,
@@ -30,7 +30,13 @@ class BlueButton extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(12.0),
           child: Center(
-              child: label
+              child: Text(
+                label,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white
+                ),
+              )
           ),
         ),
       ),
