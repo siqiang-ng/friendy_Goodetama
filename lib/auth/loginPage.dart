@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:friendy/homePage/home.dart';
-import 'package:friendy/style/palette.dart';
-import 'package:friendy/components/RaisedGradientButton.dart';
-import 'package:friendy/components/bottomNavBar';
+import '../components/bottomNavbar.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => new _LoginPageState();
@@ -115,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
           FirebaseAuth.instance.signInWithEmailAndPassword(
             email: _email, password: _password);
         Navigator.push(context, MaterialPageRoute(
-          builder: (context) => HomePage())
+          builder: (context) => BottomNavBar())
         );
       } catch (e) {
         print(e.message);
