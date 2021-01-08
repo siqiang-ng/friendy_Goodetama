@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:friendy/components/backgroundWLogo.dart';
 import 'package:friendy/auth/loginPage.dart';
+import 'package:friendy/auth/components/blueButton.dart';
 import 'signup.dart';
+import 'package:friendy/style/palette.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -16,22 +19,36 @@ class _WelcomePageState extends State<WelcomePage> {
         body: BackgroundWLogo(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
                 height: 50
               ),
-              RaisedButton(
-                onPressed: (){
+              BlueButton(
+                onPressed: () {
                   navigateToLogin();
                 },
-                child: Text('Sign In'),
+                label: Text(
+                  'Sign In',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white
+                  )
+                )
               ),
-              RaisedButton(
+              SizedBox(
+                height: 20
+              ),
+              BlueButton(
                 onPressed: () {
                   navigateToSignup();
                 },
-                child: Text('Sign Up'),
+                label: Text(
+                  'Sign Up',
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white
+                  )
+                )
               ),
             ],
           )
