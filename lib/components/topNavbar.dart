@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/style/palette.dart';
+import 'package:friendy/settingsPage/settingsPage.dart';
 
 class TopNavBar extends StatelessWidget with PreferredSizeWidget {
+  bool requiresBack = false;
+
+  TopNavBar({
+    this.requiresBack
+  });
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
