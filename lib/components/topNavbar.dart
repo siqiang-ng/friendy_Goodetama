@@ -11,9 +11,7 @@ class TopNavBar extends StatelessWidget with PreferredSizeWidget {
       leading: IconButton(
         icon: const Icon(Icons.notifications),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(
-            builder: (context) => LoginPage())
-          );
+          Navigator.pop(context);
         },
       ),
       title: Align(
