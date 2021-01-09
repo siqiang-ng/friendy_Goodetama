@@ -6,7 +6,6 @@ import 'package:friendy/components/backgroundWLogo.dart';
 import '../components/bottomNavbar.dart';
 import '../components/topNavbar.dart';
 import 'package:friendy/style/palette.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -86,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
-                  padding: const EdgeInsets.only(right:15.0),
+                  padding: const EdgeInsets.only(right:30.0),
                   child: Text('forgot password?',
                     textAlign: TextAlign.right,
                     style: TextStyle(

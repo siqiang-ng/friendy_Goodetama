@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/components/topNavbar.dart';
 import 'package:friendy/profilePage/profileBody.dart';
+import 'package:friendy/roomsPage/createGroupPage.dart';
 import 'package:friendy/style/palette.dart';
 import 'package:friendy/homePage/homeBody.dart';
 import 'package:friendy/roomsPage/roomsBody.dart';
@@ -35,44 +36,40 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Scaffold(
         appBar: TopNavBar(),
         body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+          child: _widgetOptions.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Rooms',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        // selectedItemColor: Palette.kDarkBlue,
-        backgroundColor: Palette.kLightBlue,
-        onTap: _onItemTapped,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: _getFloatingButton()
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat),
+              label: 'Rooms',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          // selectedItemColor: Palette.kDarkBlue,
+          backgroundColor: Palette.kLightBlue,
+          onTap: _onItemTapped,
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) => CreateGroupPage()
+            ));
+          },
+          tooltip: 'Create a Room',
+          child: Icon(Icons.add_comment_outlined),
+          backgroundColor: Palette.buttonBlue,
+        )
     );
-  }
-
-  Widget _getFloatingButton() {
-    if (!isRoomsPage) {
-      return Container();
-    } else {
-      return FloatingActionButton(
-        onPressed:(){},
-        tooltip: 'Create a Room',
-        child: Icon(Icons.add_comment_outlined),
-        backgroundColor: Palette.buttonBlue,
-      );
-    }
   }
 }
 
