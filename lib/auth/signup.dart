@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:friendy/components/topNavbar.dart';
+import 'components/blueButton.dart';
 import 'loginPage.dart';
+import 'package:friendy/components/backgroundWLogo.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -8,52 +11,80 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-  String _email, _password;
+  String _email, _password, _error;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Sign Up'),
+        resizeToAvoidBottomPadding: false,
+        appBar: TopNavBar(
+          requiresBack: true,
         ),
-        body: Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                validator: (input) {
-                  if (input.isEmpty) {
-                    return 'Please type an email';
-                  }
-                },
-                onSaved: (input) {
-                  _email = input;
-                },
-                decoration: InputDecoration(
-                    labelText: 'Email'
+        body: BackgroundWLogo(
+          errorMessage: _error,
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.all(10.0),
+                  width: size.width * 0.9,
+                  child: TextFormField(
+                    validator: (input) {
+                      if (input.isEmpty) {
+                        return 'Please type an email';
+                      }
+                    },
+                    onSaved: (input) {
+                      _email = input;
+                    },
+                    decoration: InputDecoration(
+                        labelText: 'Email',
+                      border: new OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          const Radius.circular(30.0),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-              TextFormField(
-                validator: (input) {
-                  if (input.length < 6) {
-                    return 'Your password needs to be at least 6 characters';
-                  }
-                },
-                onSaved: (input) {
-                  _password = input;
-                },
-                decoration: InputDecoration(
-                    labelText: 'Password'
+                SizedBox(
+                  height: 10
                 ),
-                obscureText: true,
-              ),
-              RaisedButton(
+                Container(
+                  padding: EdgeInsets.all(10.0),
+                  width: size.width * 0.9,
+                  child: TextFormField(
+                    validator: (input) {
+                      if (input.length < 6) {
+                        return 'Your password needs to be at least 6 characters';
+                      }
+                    },
+                    onSaved: (input) {
+                      _password = input;
+                    },
+                    decoration: InputDecoration(
+                        labelText: 'Password',
+                      border: new OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          const Radius.circular(30.0),
+                        ),
+                      ),
+                    ),
+                    obscureText: true,
+                  ),
+                ),
+                SizedBox (
+                  height: 90,
+                ),
+                BlueButton(
                   onPressed: signup,
-                  child: Text("Sign Up")
-              )
-            ],
+                  label: "Sign Up",
+                )
+              ],
+            ),
           ),
         )
     );
@@ -72,6 +103,9 @@ class _SignupPageState extends State<SignupPage> {
           builder: (context) => LoginPage()
         ));
       } catch (e) {
+        setState(() {
+          _error = e.message;
+        });
         print(e.message);
       }
     }

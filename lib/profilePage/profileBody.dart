@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:friendy/auth/welcome.dart';
 import 'package:friendy/components/background.dart';
 import 'package:friendy/style/palette.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileBody extends StatefulWidget {
   @override
@@ -96,7 +98,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                     style: textStyle,
                   ),
                   trailing: Icon(Icons.keyboard_arrow_right, color: Palette.kDarkBlue,),
-                  onTap: () {},
+                  onTap: signout,
                 ),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
                 margin: EdgeInsets.all(5.0),
@@ -113,9 +115,29 @@ class _ProfileBodyState extends State<ProfileBody> {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
                 margin: EdgeInsets.all(5.0),
               ),
+              Spacer(),
+              Text(
+                "v1.0.0",
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  color: Palette.kDarkBlue,
+                  fontSize: 18
+                )
+              ),
+              SizedBox(
+                height: 10
+              )
             ],
           ),
         )
     );
   }
+
+  Future<void> signout() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.push(context, MaterialPageRoute(
+        builder: (context) => WelcomePage())
+    );
+  }
+
 }

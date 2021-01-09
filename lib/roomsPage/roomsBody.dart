@@ -30,6 +30,7 @@ class _RoomsBodyState extends State<RoomsBody> {
               child: ListTile(
                 leading: CircleAvatar(
                   backgroundImage: avatarImage,
+                  radius: 30
                 ),
                 title: Text("Goodetama",
                   style: mainTextStyle,
@@ -43,6 +44,7 @@ class _RoomsBodyState extends State<RoomsBody> {
               child: ListTile(
                 leading: CircleAvatar(
                   backgroundImage: avatarImage,
+                  radius: 30
                 ),
                 title: Text("Study Now",
                   style: mainTextStyle,
@@ -51,16 +53,6 @@ class _RoomsBodyState extends State<RoomsBody> {
                 onTap: () {},
               ),
               elevation: 0,
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(1.0, 300.0 , 5.0, 5.0),
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: FloatingActionButton(
-                  onPressed: () {},
-                  child: Icon(Icons.add_comment_outlined),
-                ),
-              ),
             ),
           ],
         ),

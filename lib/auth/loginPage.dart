@@ -1,6 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:friendy/auth/components/blueButton.dart';
+import 'package:friendy/components/backgroundWLogo.dart';
 import '../components/bottomNavbar.dart';
+import '../components/topNavbar.dart';
+import 'package:friendy/style/palette.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -8,97 +13,98 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String _email, _password;
+  String _email, _password, _error;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
         resizeToAvoidBottomPadding: false,
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Form(
-        key: _formKey,
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 270
-            ),
-            TextFormField(
-              validator: (input) {
-                if (input.isEmpty) {
-                  return 'Please type an email';
-                }
-              },
-              onSaved: (input) {
-                _email = input;
-              },
-              decoration: InputDecoration(
-                labelText: 'Email',
-                border: new OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(
-                    const Radius.circular(30.0),
+        appBar: TopNavBar(
+          requiresBack: true,
+        ),
+      body: BackgroundWLogo(
+        errorMessage: _error,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: <Widget>[
+                Container(
+                padding: EdgeInsets.all(10.0),
+                width: size.width * 0.9,
+                child: TextFormField(
+                  validator: (input) {
+                    if (input.isEmpty) {
+                      return 'Email cannot be empty.';
+                    }
+                  },
+                  onSaved: (input) {
+                    _email = input;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(30.0),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox (
-              height: 30
-            ),
-            TextFormField(
-              validator: (input) {
-                if (input.length < 6) {
-                  return 'Your password needs to be at least 6 characters';
-                }
-              },
-              onSaved: (input) {
-                _password = input;
-              },
-              decoration: InputDecoration(
-                  labelText: 'Password',
-                border: new OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(
-                    const Radius.circular(30.0),
+              SizedBox (
+                height: 10
+              ),
+              Container(
+                padding: EdgeInsets.all(10.0),
+                width: size.width * 0.9,
+                child: TextFormField(
+                  validator: (input) {
+                    if (input.isEmpty) {
+                      return 'Password cannot be empty.';
+                    }
+                    if (input.length < 6) {
+                      return 'Your password needs to be at least 6 characters';
+                    }
+                  },
+                  onSaved: (input) {
+                    _password = input;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(30.0),
+                      ),
+                    ),
+                  ),
+                  obscureText: true,
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right:30.0),
+                  child: Text('forgot password?',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Palette.kDarkBlue
+                    )
                   ),
                 ),
               ),
-              obscureText: true,
-            ),
-            Text('Forgot Password',
-            textAlign: TextAlign.right,
-            style: TextStyle(fontStyle: FontStyle.italic)),
-            SizedBox (
-              height: 90,
-            ),
-        RaisedButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) => BottomNavBar()),
-            );
-          },
-          textColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50.0)
-          ),
-          padding: const EdgeInsets.all(0.0),
-          child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: <Color>[
-                  Color(0xFF0D47A1),
-                  Color(0xFF1976D2),
-                  Color(0xFF42A5F5),
-                ],
+              SizedBox (
+                height: 70,
               ),
-            ),
-            padding: const EdgeInsets.all(17.0),
-            child:
-            const Text('LOGIN', style: TextStyle(fontSize: 18)),
+              BlueButton(
+                onPressed: login,
+                label: "Login",
+              )
+            ],
           ),
-          ),
-          ],
         ),
       )
     );
@@ -116,6 +122,9 @@ class _LoginPageState extends State<LoginPage> {
           builder: (context) => BottomNavBar())
         );
       } catch (e) {
+        setState(() {
+          _error = e.message;
+        });
         print(e.message);
       }
     }
