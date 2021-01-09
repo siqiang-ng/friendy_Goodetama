@@ -2,7 +2,7 @@
     package="com.example.friendy">
    <application
         android:label="friendy"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/friendy_launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
