@@ -13,6 +13,7 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 1;
+  bool isRoomsPage = false;
 
   static List<Widget> _widgetOptions = <Widget>[
     ProfileBody(),
@@ -23,6 +24,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if (index == 2) {
+        isRoomsPage = true;
+      }
     });
   }
 
@@ -52,8 +56,23 @@ class _BottomNavBarState extends State<BottomNavBar> {
         // selectedItemColor: Palette.kDarkBlue,
         backgroundColor: Palette.kLightBlue,
         onTap: _onItemTapped,
-      )
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: _getFloatingButton()
     );
+  }
+
+  Widget _getFloatingButton() {
+    if (!isRoomsPage) {
+      return Container();
+    } else {
+      return FloatingActionButton(
+        onPressed:(){},
+        tooltip: 'Create a Room',
+        child: Icon(Icons.add_comment_outlined),
+        backgroundColor: Palette.buttonBlue,
+      );
+    }
   }
 }
 
