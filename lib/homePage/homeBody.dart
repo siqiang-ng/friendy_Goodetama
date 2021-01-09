@@ -45,23 +45,34 @@ class _HomeBodyState extends State<HomeBody> {
                         borderRadius: BorderRadius.circular(5)),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
-                Container(
-                  padding: EdgeInsets.all(50.0),
-                  margin: EdgeInsets.fromLTRB(10.0, 1.0, 5.0, 1.0),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(30)),
-                    shape: BoxShape.rectangle,
-                    color: Palette.kLightBlue,
-                  ),
-                  child: CheckboxListTile(
-                    value: false,
-                    title: Text("Presentation Slides"),
-                    controlAffinity: ListTileControlAffinity.leading,
-                    activeColor: Colors.black,
-                    checkColor: Colors.black,
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Container(
+                    height: 150,
+                    padding: EdgeInsets.all(5.0),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(25)),
+                      shape: BoxShape.rectangle,
+                      color: Palette.kLightBlue,
+                    ),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: CheckboxListTile(
+                        value: false,
+                        title: Text(
+                            "Presentation Slides",
+                          style: TextStyle(
+                            color: Palette.kDarkBlue
+                          ),
+                        ),
+                        controlAffinity: ListTileControlAffinity.leading,
+                        activeColor: Colors.white,
+                        checkColor: Palette.kDarkBlue,
+                      ),
+                    ),
                   ),
                 ),
               ],
