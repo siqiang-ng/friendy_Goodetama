@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/components/background.dart';
-<<<<<<< HEAD
 import 'package:slide_digital_clock/slide_digital_clock.dart';
-=======
->>>>>>> 9381365789f39cad1f707b44170645f162140bff
 import 'package:friendy/style/palette.dart';
 
 class HomeBody extends StatefulWidget {
@@ -14,8 +11,6 @@ class HomeBody extends StatefulWidget {
 class _HomeBodyState extends State<HomeBody> {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    // TODO: implement build
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Slider Digital Clock Demo',
@@ -49,61 +44,29 @@ class _HomeBodyState extends State<HomeBody> {
                         border: Border.all(color: Palette.kDarkBlue),
                         borderRadius: BorderRadius.circular(5)),
                 ),
-              ],
-            ),
-          ),
-        ));
-=======
-    return Background(
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 5,
-            ),
-            Container(
-              padding: EdgeInsets.all(20.0),
-              margin: EdgeInsets.fromLTRB(10.0, 1.0, 5.0, 1.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                shape: BoxShape.rectangle,
-                color: Palette.kDarkBlue,
-              ),
-              child: Text("Container 1",
-                style: TextStyle(
-                  fontSize: 30,
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Container(
-              padding: EdgeInsets.all(50.0),
-              margin: EdgeInsets.fromLTRB(10.0, 1.0, 5.0, 1.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-                shape: BoxShape.rectangle,
-                color: Palette.kLightBlue,
-              ),
-                child: CheckboxListTile(
+                Container(
+                  padding: EdgeInsets.all(50.0),
+                  margin: EdgeInsets.fromLTRB(10.0, 1.0, 5.0, 1.0),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    shape: BoxShape.rectangle,
+                    color: Palette.kLightBlue,
+                  ),
+                  child: CheckboxListTile(
                     value: false,
                     title: Text("Presentation Slides"),
                     controlAffinity: ListTileControlAffinity.leading,
                     activeColor: Colors.black,
                     checkColor: Colors.black,
-                //textAlign: TextAlign.start,
-                //style: TextStyle(
-                  //fontSize: 18,
-                //),
-              ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
-    );
->>>>>>> 9381365789f39cad1f707b44170645f162140bff
+          ),
+        ));
   }
 }
