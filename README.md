@@ -14,4 +14,4 @@ The timer will be based on pomodoro study method where for every 25min of study,
   - app-arm64-v8a-release.apk (ARM 64-bit)
   - app-armeabi-v7a-release.apk (ARM 32-bit)
   - app-x86_64-release.apk (x86 64-bit)
-3. Install apk in your andriod device and you can use the app
+3. Install the relevant apk in your android device and you can use the app.
