@@ -14,17 +14,24 @@ class AlertMessage extends StatelessWidget {
       return Container(
           color: Colors.amber,
           width: double.infinity,
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(12.0),
           child: Row(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(right: 8.0),
+                padding: const EdgeInsets.only(
+                  left: 2.0,
+                  right: 10.0
+                ),
                 child: Icon(Icons.error_outline),
               ),
               Expanded(
                 child: AutoSizeText(
                   errorMessage,
                   maxLines: 3,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16
+                  ),
                 ),
               ),
             ],

@@ -115,6 +115,18 @@ class _ProfileBodyState extends State<ProfileBody> {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
                 margin: EdgeInsets.all(5.0),
               ),
+              Spacer(),
+              Text(
+                "v1.0.0",
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  color: Palette.kDarkBlue,
+                  fontSize: 18
+                )
+              ),
+              SizedBox(
+                height: 10
+              )
             ],
           ),
         )

@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:friendy/auth/components/alertMessage.dart';
 import 'package:friendy/auth/components/blueButton.dart';
 import 'package:friendy/components/backgroundWLogo.dart';
 import '../components/bottomNavbar.dart';
 import '../components/topNavbar.dart';
 import 'package:friendy/style/palette.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -20,7 +18,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
         resizeToAvoidBottomPadding: false,
         appBar: TopNavBar(
@@ -32,53 +31,61 @@ class _LoginPageState extends State<LoginPage> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              TextFormField(
-                validator: (input) {
-                  if (input.isEmpty) {
-                    return 'Email cannot be empty.';
-                  }
-                },
-                onSaved: (input) {
-                  _email = input;
-                },
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                  border: new OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(
-                      const Radius.circular(30.0),
+                Container(
+                padding: EdgeInsets.all(10.0),
+                width: size.width * 0.9,
+                child: TextFormField(
+                  validator: (input) {
+                    if (input.isEmpty) {
+                      return 'Email cannot be empty.';
+                    }
+                  },
+                  onSaved: (input) {
+                    _email = input;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(30.0),
+                      ),
                     ),
                   ),
                 ),
               ),
               SizedBox (
-                height: 20
+                height: 10
               ),
-              TextFormField(
-                validator: (input) {
-                  if (input.isEmpty) {
-                    return 'Password cannot be empty.';
-                  }
-                  if (input.length < 6) {
-                    return 'Your password needs to be at least 6 characters';
-                  }
-                },
-                onSaved: (input) {
-                  _password = input;
-                },
-                decoration: InputDecoration(
+              Container(
+                padding: EdgeInsets.all(10.0),
+                width: size.width * 0.9,
+                child: TextFormField(
+                  validator: (input) {
+                    if (input.isEmpty) {
+                      return 'Password cannot be empty.';
+                    }
+                    if (input.length < 6) {
+                      return 'Your password needs to be at least 6 characters';
+                    }
+                  },
+                  onSaved: (input) {
+                    _password = input;
+                  },
+                  decoration: InputDecoration(
                     labelText: 'Password',
-                  border: new OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(
-                      const Radius.circular(30.0),
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(30.0),
+                      ),
                     ),
                   ),
+                  obscureText: true,
                 ),
-                obscureText: true,
               ),
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.only(right:30.0),
                   child: Text('forgot password?',
                     textAlign: TextAlign.right,
                     style: TextStyle(
