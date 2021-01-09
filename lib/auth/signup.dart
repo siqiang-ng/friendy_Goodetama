@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:friendy/components/bottomNavbar.dart';
 import 'package:friendy/components/topNavbar.dart';
 import 'components/blueButton.dart';
 import 'loginPage.dart';
@@ -17,7 +16,7 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
         resizeToAvoidBottomPadding: false,
         appBar: TopNavBar(
@@ -29,45 +28,53 @@ class _SignupPageState extends State<SignupPage> {
             key: _formKey,
             child: Column(
               children: <Widget>[
-                TextFormField(
-                  validator: (input) {
-                    if (input.isEmpty) {
-                      return 'Please type an email';
-                    }
-                  },
-                  onSaved: (input) {
-                    _email = input;
-                  },
-                  decoration: InputDecoration(
-                      labelText: 'Email',
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(30.0),
+                Container(
+                  padding: EdgeInsets.all(10.0),
+                  width: size.width * 0.9,
+                  child: TextFormField(
+                    validator: (input) {
+                      if (input.isEmpty) {
+                        return 'Please type an email';
+                      }
+                    },
+                    onSaved: (input) {
+                      _email = input;
+                    },
+                    decoration: InputDecoration(
+                        labelText: 'Email',
+                      border: new OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          const Radius.circular(30.0),
+                        ),
                       ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 20
+                  height: 10
                 ),
-                TextFormField(
-                  validator: (input) {
-                    if (input.length < 6) {
-                      return 'Your password needs to be at least 6 characters';
-                    }
-                  },
-                  onSaved: (input) {
-                    _password = input;
-                  },
-                  decoration: InputDecoration(
-                      labelText: 'Password',
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(30.0),
+                Container(
+                  padding: EdgeInsets.all(10.0),
+                  width: size.width * 0.9,
+                  child: TextFormField(
+                    validator: (input) {
+                      if (input.length < 6) {
+                        return 'Your password needs to be at least 6 characters';
+                      }
+                    },
+                    onSaved: (input) {
+                      _password = input;
+                    },
+                    decoration: InputDecoration(
+                        labelText: 'Password',
+                      border: new OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          const Radius.circular(30.0),
+                        ),
                       ),
                     ),
+                    obscureText: true,
                   ),
-                  obscureText: true,
                 ),
                 SizedBox (
                   height: 90,
