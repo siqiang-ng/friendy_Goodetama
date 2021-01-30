@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/components/background.dart';
-import 'package:slide_digital_clock/slide_digital_clock.dart';
 import 'package:friendy/style/palette.dart';
+import 'package:friendy/homePage/components/slidingDigitalClock.dart';
+import 'package:friendy/homePage/components/custCheckBox.dart';
+
 
 class HomeBody extends StatefulWidget {
   @override
@@ -23,43 +25,9 @@ class _HomeBodyState extends State<HomeBody> {
                 SizedBox(
                   height: 20,
                 ),
-                DigitalClock(
-                  areaAligment: AlignmentDirectional.center,
-                    areaHeight: 90,
-                    is24HourTimeFormat: false,
-                    digitAnimationStyle: Curves.easeOutExpo,
-                    hourMinuteDigitTextStyle: TextStyle(
-                      color: Colors.blueGrey,
-                      fontSize: 50,
-                      decoration: TextDecoration.none
-                    ),
-                    amPmDigitTextStyle: TextStyle(
-                        color: Colors.blueGrey,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.none
-                    ),
-                    secondDigitTextStyle: TextStyle(
-                        color: Colors.blueGrey,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.none
-                    ),
-                    areaDecoration: BoxDecoration(
-                        color: Colors.transparent
-                    ),
-                    hourMinuteDigitDecoration: BoxDecoration(
-                        color: Colors.transparent
-                    ),
-                    secondDigitDecoration: BoxDecoration(
-                        color: Colors.transparent
-                    ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
+                SlidingDigitalClock(),
                 Padding(
-                  padding: const EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Container(
                     height: 150,
                     padding: EdgeInsets.all(5.0),
@@ -71,17 +39,12 @@ class _HomeBodyState extends State<HomeBody> {
                     ),
                     child: Align(
                       alignment: Alignment.topLeft,
-                      child: CheckboxListTile(
-                        value: false,
-                        title: Text(
-                            "Presentation Slides",
-                          style: TextStyle(
-                            color: Palette.kDarkBlue
-                          ),
-                        ),
-                        controlAffinity: ListTileControlAffinity.leading,
-                        activeColor: Colors.white,
-                        checkColor: Palette.kDarkBlue,
+                      child: Column(
+                        children: [
+                          CustCheckBox(
+                            label: "Presentation Slides",
+                          )
+                        ],
                       ),
                     ),
                   ),
