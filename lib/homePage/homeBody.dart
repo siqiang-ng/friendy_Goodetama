@@ -29,20 +29,31 @@ class _HomeBodyState extends State<HomeBody> {
                     is24HourTimeFormat: false,
                     digitAnimationStyle: Curves.easeOutExpo,
                     hourMinuteDigitTextStyle: TextStyle(
-                      color: Palette.kLightBlue,
+                      color: Colors.blueGrey,
                       fontSize: 50,
+                      decoration: TextDecoration.none
+                    ),
+                    amPmDigitTextStyle: TextStyle(
+                        color: Colors.blueGrey,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.none
+                    ),
+                    secondDigitTextStyle: TextStyle(
+                        color: Colors.blueGrey,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.none
                     ),
                     areaDecoration: BoxDecoration(
-                        border: Border.all(color: Colors.transparent),
-                        borderRadius: BorderRadius.circular(20),
-                        color: Palette.kDarkBlue
+                        color: Colors.transparent
                     ),
                     hourMinuteDigitDecoration: BoxDecoration(
-                        border: Border.all(color: Palette.kDarkBlue),
-                        borderRadius: BorderRadius.circular(5)),
+                        color: Colors.transparent
+                    ),
                     secondDigitDecoration: BoxDecoration(
-                        border: Border.all(color: Palette.kDarkBlue),
-                        borderRadius: BorderRadius.circular(5)),
+                        color: Colors.transparent
+                    ),
                 ),
                 SizedBox(
                   height: 10,
