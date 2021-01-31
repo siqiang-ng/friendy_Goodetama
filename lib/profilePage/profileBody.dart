@@ -13,7 +13,7 @@ class _ProfileBodyState extends State<ProfileBody> {
   final TextStyle textStyle = TextStyle(
     color: Palette.kDarkBlue,
     fontWeight: FontWeight.bold,
-    fontSize: 18
+    fontSize: 19
   );
 
   @override

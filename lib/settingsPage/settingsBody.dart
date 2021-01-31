@@ -4,6 +4,12 @@ import 'package:friendy/components/background.dart';
 import 'package:friendy/homePage/homeBody.dart';
 
 class SettingsBody extends StatelessWidget {
+  TextStyle contentFontStyle = TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Palette.kDarkBlue,
+      fontSize: 19
+  );
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -18,13 +24,11 @@ class SettingsBody extends StatelessWidget {
                                   color: Palette.kDarkBlue
                                   ),
                     title: Text('Language',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Palette.kDarkBlue)
+                        style: contentFontStyle
                     ),
                     onTap: () {},
                   ),
-                  color: Palette.kLightBlue,
+                  color: Palette.kSkyBlue,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   ),
                 Card(
@@ -32,13 +36,11 @@ class SettingsBody extends StatelessWidget {
                     leading: Icon(Icons.local_phone,
                                   color: Palette.kDarkBlue),
                     title: Text('Calls',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Palette.kDarkBlue)
+                        style: contentFontStyle
                   ),
                     onTap: () {},
                   ),
-                  color: Palette.kLightBlue,
+                  color: Palette.kSkyBlue,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 ),
                 Card(
@@ -46,13 +48,11 @@ class SettingsBody extends StatelessWidget {
                     leading: Icon(Icons.sms,
                                   color: Palette.kDarkBlue),
                     title: Text('Messages',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Palette.kDarkBlue)
+                            style: contentFontStyle
                   ),
                     onTap: () {},
                   ),
-                  color: Palette.kLightBlue,
+                  color: Palette.kSkyBlue,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 ),
                 Card(
@@ -60,13 +60,11 @@ class SettingsBody extends StatelessWidget {
                     leading: Icon(Icons.app_settings_alt,
                                   color: Palette.kDarkBlue),
                     title: Text('Notifications',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Palette.kDarkBlue)
+                        style: contentFontStyle
                     ),
                     onTap: () {},
                   ),
-                  color: Palette.kLightBlue,
+                  color: Palette.kSkyBlue,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 ),
                 Card(
@@ -74,13 +72,11 @@ class SettingsBody extends StatelessWidget {
                     leading: Icon(Icons.help_outline,
                                   color: Palette.kDarkBlue),
                     title: Text('Help & Feedback',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Palette.kDarkBlue)
+                        style: contentFontStyle
                     ),
                     onTap: () {},
                   ),
-                  color: Palette.kLightBlue,
+                  color: Palette.kSkyBlue,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 ),
               ],
