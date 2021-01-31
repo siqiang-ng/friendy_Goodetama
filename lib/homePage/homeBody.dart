@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/components/background.dart';
+import 'package:friendy/countdownPage/countdownPage.dart';
 import 'package:friendy/homePage/components/dashboard.dart';
 import 'package:friendy/homePage/components/slidingDigitalClock.dart';
 import 'package:friendy/homePage/components/taskList.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:friendy/style/palette.dart';
-
 
 class HomeBody extends StatefulWidget {
   @override
@@ -87,6 +87,37 @@ class _HomeBodyState extends State<HomeBody> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 30
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CountdownPage()),
+                    );
+                  },
+                  color: Palette.buttonBlue,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: Container(
+                      child: Text(
+                        'Start Timer',
+                        style: GoogleFonts.strait(
+                          textStyle: TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22
+                          )
+                        ),
+                      )
+                    ),
+                  ),
+                )
               ],
             ),
           ),
