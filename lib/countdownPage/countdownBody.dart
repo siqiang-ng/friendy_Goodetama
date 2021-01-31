@@ -32,6 +32,7 @@ class _CountdownBodyState extends State<CountdownBody> {
     return Background(
       body: Column(
         children: [
+          Spacer(),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(15.0),
@@ -50,7 +51,7 @@ class _CountdownBodyState extends State<CountdownBody> {
                     widgetBuilder: (_, CurrentRemainingTime time) {
                       if (time == null) {
                         return Text(
-                          'Times Up! Time for a rest!',
+                          'Times Up! Get some rest!',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.strait(
                             textStyle: TextStyle(
@@ -64,13 +65,21 @@ class _CountdownBodyState extends State<CountdownBody> {
 
                       String hrs = '${time.hours}'.trim() == 'null'
                           ? '00:'
-                          : '${time.hours}:';
+                          : int.parse('${time.hours}') < 10
+                            ? "0" + '${time.hours}:'
+                            : '${time.hours}:';
                       String min = '${time.min}'.trim() == 'null'
                           ? ' 00:'
-                          : ' ${time.min}:';
+                          : int.parse('${time.min}') < 10
+                            ? " 0" + '${time.min}:'
+                            :  ' ${time.min}:';
+
+                      String sec = int.parse('${time.sec}') < 10
+                          ? " 0" + '${time.sec}'
+                          :  ' ${time.sec}';
 
                       return Text(
-                        hrs + min + ' ${time.sec}',
+                        hrs + min + sec,
                         style: GoogleFonts.strait(
                           textStyle: TextStyle(
                             fontSize: 40,
@@ -86,13 +95,25 @@ class _CountdownBodyState extends State<CountdownBody> {
               ),
             ),
           ),
-          FlatButton(
-            onPressed: () {
-              onEnd();
-              controller.disposeTimer();
-            },
-            child: Icon(Icons.stop, color: Palette.kDarkBlue, size: 40)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FlatButton(
+                onPressed: () {
+                  onEnd();
+                  controller.disposeTimer();
+                },
+                child: Icon(Icons.stop, color: Palette.kDarkBlue, size: 40)
+              ),
+              FlatButton(
+                onPressed: () {
+                  controller.start();
+                },
+                child: Icon(Icons.play_arrow, color: Palette.kDarkBlue, size: 40)
+              )
+            ],
           ),
+          Spacer()
         ],
       ),
     );
