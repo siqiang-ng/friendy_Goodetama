@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/components/background.dart';
+import 'package:friendy/countdownPage/countdownPage.dart';
 import 'package:friendy/homePage/components/dashboard.dart';
 import 'package:friendy/homePage/components/slidingDigitalClock.dart';
 import 'package:friendy/homePage/components/taskList.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:friendy/style/palette.dart';
-
 
 class HomeBody extends StatefulWidget {
   @override
@@ -91,7 +91,12 @@ class _HomeBodyState extends State<HomeBody> {
                   height: 30
                 ),
                 RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CountdownPage()),
+                    );
+                  },
                   color: Palette.buttonBlue,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
