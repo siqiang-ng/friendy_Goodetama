@@ -5,16 +5,17 @@ import 'background.dart';
 class BackgroundWLogo extends StatelessWidget {
   final Widget child;
   final String errorMessage;
+  final double heightProportion;
 
   BackgroundWLogo({
     this.child,
-    this.errorMessage
+    this.errorMessage,
+    this.heightProportion,
   });
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     // TODO: implement build
     return Background(
         body: Container(
@@ -25,7 +26,7 @@ class BackgroundWLogo extends StatelessWidget {
                   errorMessage: errorMessage
                 ),
                 SizedBox(
-                  height: 80,
+                  height: size.height * heightProportion
                 ),
                 Image.asset(
                   'images/friendy_logo.png',

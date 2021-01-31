@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:friendy/components/background.dart';
-import 'package:slide_digital_clock/slide_digital_clock.dart';
+import 'package:friendy/homePage/components/dashboard.dart';
+import 'package:friendy/homePage/components/slidingDigitalClock.dart';
+import 'package:friendy/homePage/components/taskList.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:friendy/style/palette.dart';
+
 
 class HomeBody extends StatefulWidget {
   @override
@@ -9,11 +14,14 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
+
   @override
   Widget build(BuildContext context) {
+    DateTime currentDate = DateTime.now();
+    String formattedDate = DateFormat('EEE, dd MMMM yyy').format(currentDate);
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Slider Digital Clock Demo',
         home: Background(
           body: Center(
             child: Column(
@@ -21,59 +29,64 @@ class _HomeBodyState extends State<HomeBody> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
-                DigitalClock(
-                  areaAligment: AlignmentDirectional.center,
-                    areaHeight: 90,
-                    is24HourTimeFormat: false,
-                    digitAnimationStyle: Curves.easeOutExpo,
-                    hourMinuteDigitTextStyle: TextStyle(
-                      color: Palette.kLightBlue,
-                      fontSize: 50,
-                    ),
-                    areaDecoration: BoxDecoration(
-                        border: Border.all(color: Colors.transparent),
-                        borderRadius: BorderRadius.circular(20),
-                        color: Palette.kDarkBlue
-                    ),
-                    hourMinuteDigitDecoration: BoxDecoration(
-                        border: Border.all(color: Palette.kDarkBlue),
-                        borderRadius: BorderRadius.circular(5)),
-                    secondDigitDecoration: BoxDecoration(
-                        border: Border.all(color: Palette.kDarkBlue),
-                        borderRadius: BorderRadius.circular(5)),
+                Text(
+                  formattedDate,
+                  style: GoogleFonts.strait(
+                    textStyle: TextStyle(
+                      fontSize: 18,
+                      color: Colors.blueGrey,
+                      decoration: TextDecoration.none
+                    )
+                  ),
                 ),
+                SlidingDigitalClock(),
+                DashBoard(),
+                TaskList(),
                 SizedBox(
-                  height: 10,
+                  height: 20
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    height: 150,
-                    padding: EdgeInsets.all(5.0),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(25)),
-                      shape: BoxShape.rectangle,
-                      color: Palette.kLightBlue,
-                    ),
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: CheckboxListTile(
-                        value: false,
-                        title: Text(
-                            "Presentation Slides",
-                          style: TextStyle(
-                            color: Palette.kDarkBlue
-                          ),
-                        ),
-                        controlAffinity: ListTileControlAffinity.leading,
-                        activeColor: Colors.white,
-                        checkColor: Palette.kDarkBlue,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.ideographic,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "you have studied for ",
+                      style: GoogleFonts.strait(
+                        textStyle: TextStyle(
+                        fontSize: 18,
+                            color: Colors.black,
+                            fontWeight: FontWeight.normal,
+                            decoration: TextDecoration.none
+                        )
                       ),
                     ),
-                  ),
+                    Text(
+                      "20",
+                      style: GoogleFonts.strait(
+                        textStyle: TextStyle(
+                          fontSize: 40,
+                          color: Palette.kDarkBlue,
+                          decoration: TextDecoration.none,
+                          fontWeight: FontWeight.normal
+                        )
+                      )
+                    ),
+                    Text(
+                      " days in a row!",
+                      style: GoogleFonts.strait(
+                          textStyle: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal,
+                              decoration: TextDecoration.none
+                          )
+                      ),
+                    ),
+
+                  ],
                 ),
               ],
             ),

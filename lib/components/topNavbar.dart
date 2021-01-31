@@ -42,7 +42,7 @@ class TopNavBar extends StatelessWidget with PreferredSizeWidget {
        ),
 
       ],
-      backgroundColor: Palette.kLightBlue,
+      backgroundColor: Palette.navBarBlue,
     );
   }
 
