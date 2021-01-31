@@ -87,6 +87,32 @@ class _HomeBodyState extends State<HomeBody> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 30
+                ),
+                RaisedButton(
+                  onPressed: () {},
+                  color: Palette.buttonBlue,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: Container(
+                      child: Text(
+                        'Start Timer',
+                        style: GoogleFonts.strait(
+                          textStyle: TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22
+                          )
+                        ),
+                      )
+                    ),
+                  ),
+                )
               ],
             ),
           ),
