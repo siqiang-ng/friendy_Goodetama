@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:slide_digital_clock/slide_digital_clock.dart';
-import 'package:friendy/style/palette.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SlidingDigitalClock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DigitalClock(
       areaAligment: AlignmentDirectional.center,
-      areaHeight: 90,
+      areaHeight: 80,
       is24HourTimeFormat: false,
       digitAnimationStyle: Curves.easeOutExpo,
-      hourMinuteDigitTextStyle: TextStyle(
-          color: Colors.blueGrey,
-          fontSize: 50,
-          decoration: TextDecoration.none
+      hourMinuteDigitTextStyle: GoogleFonts.strait(
+          textStyle: TextStyle(
+            color: Colors.blueGrey,
+            fontSize: 50,
+            decoration: TextDecoration.none
+          )
       ),
-      amPmDigitTextStyle: TextStyle(
+      amPmDigitTextStyle: GoogleFonts.strait(
+        textStyle: TextStyle(
           color: Colors.blueGrey,
           fontSize: 25,
           fontWeight: FontWeight.bold,
           decoration: TextDecoration.none
+        )
       ),
-      secondDigitTextStyle: TextStyle(
+      secondDigitTextStyle: GoogleFonts.strait(
+        textStyle: TextStyle(
           color: Colors.blueGrey,
           fontSize: 25,
           fontWeight: FontWeight.bold,
           decoration: TextDecoration.none
+        )
       ),
       areaDecoration: BoxDecoration(
           color: Colors.transparent

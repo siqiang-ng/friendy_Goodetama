@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:friendy/auth/loginPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'auth/welcome.dart';
+import 'package:flutter/services.dart';
 
 
 Future<void> main() async {
@@ -15,6 +15,10 @@ class FriendyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     // TODO: implement build
     return MaterialApp(
       title: 'Friendy App',

@@ -26,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
           requiresBack: true,
         ),
       body: BackgroundWLogo(
+        heightProportion: 0.1,
         errorMessage: _error,
         child: Form(
           key: _formKey,

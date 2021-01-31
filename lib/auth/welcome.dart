@@ -12,16 +12,19 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     // TODO: implement build
     return Scaffold(
         body: BackgroundWLogo(
+          heightProportion: 0.25,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 80
+                height: height * 0.1
               ),
               BlueButton(
                 onPressed: () {
@@ -30,7 +33,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 label: 'Sign In'
               ),
               SizedBox(
-                height: 25
+                height: height * 0.03
               ),
               BlueButton(
                 onPressed: () {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:friendy/style/palette.dart';
+import 'package:friendy/homePage/components/dotCheckBox.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustCheckBox extends StatefulWidget {
@@ -54,21 +54,19 @@ class LabeledCheckbox extends StatelessWidget {
         padding: padding,
         child: Row(
           children: <Widget>[
-            Checkbox(
-              value: value,
-              onChanged: (bool newValue) {
-                onChanged(newValue);
-              },
+            DotCheckbox(
+              size: 20,
+              iconSize: 11,
             ),
             Expanded(
                 child: Text(
                   label,
                   style: GoogleFonts.strait(
                     textStyle: TextStyle(
-                      color: Palette.kDarkBlue,
+                      color: Colors.black,
                       decoration: TextDecoration.none,
                       fontSize: 18,
-                      fontWeight: FontWeight.w600
+                      fontWeight: FontWeight.w500
                     )
                   )
                 )
