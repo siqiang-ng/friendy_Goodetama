@@ -27,7 +27,7 @@ class _TaskListState extends State<TaskList> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(25)),
           shape: BoxShape.rectangle,
-          color: Color.fromRGBO(190, 227, 247, 1.0),
+          color: Palette.kSkyBlue,
         ),
         child: Scrollbar(
           controller: _TaskScrollController,
